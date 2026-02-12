@@ -19,6 +19,19 @@
     path: "{{ wordpress_web_root }}/index.html"
     state: absent
 
+- name: Generate WordPress secret keys if not present
+  ansible.builtin.set_fact:
+    wordpress_auth_key: "{{ lookup('password', secret_dir + '/auth_key length=64 chars=ascii_letters') }}"
+    wordpress_secure_auth_key: "{{ lookup('password', secret_dir + '/secure_auth_key length=64 chars=ascii_letters') }}"
+    wordpress_logged_in_key: "{{ lookup('password', secret_dir + '/logged_in_key length=64 chars=ascii_letters') }}"
+    wordpress_nonce_key: "{{ lookup('password', secret_dir + '/nonce_key length=64 chars=ascii_letters') }}"
+    wordpress_auth_salt: "{{ lookup('password', secret_dir + '/auth_salt length=64 chars=ascii_letters') }}"
+    wordpress_secure_auth_salt: "{{ lookup('password', secret_dir + '/secure_auth_salt length=64 chars=ascii_letters') }}"
+    wordpress_logged_in_salt: "{{ lookup('password', secret_dir + '/logged_in_salt length=64 chars=ascii_letters') }}"
+    wordpress_nonce_salt: "{{ lookup('password', secret_dir + '/nonce_salt length=64 chars=ascii_letters') }}"
+  vars:
+    secret_dir: "{{ playbook_dir }}/.secrets"
+
 - name: Create WordPress wp-config.php from template
   ansible.builtin.template:
     src: wp-config.php.j2
