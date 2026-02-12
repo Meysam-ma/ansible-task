@@ -42,10 +42,6 @@ The following variables can be overridden to customize the installation. Default
 - `wordpress_db_password`
 - `wordpress_domain` (if not using localhost)
 
-## Dependencies
-
-
-
 ## Example Playbook
 
 ```yaml
