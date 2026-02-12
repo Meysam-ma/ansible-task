@@ -1,0 +1,82 @@
+<?php
+/**
+ * The base configurations of the WordPress.
+ *
+ * This file has the following configurations:
+ *
+ * - Database connection details
+ * - Secret keys
+ *
+ * @link https://developer.wordpress.org/options/wp-config-php/
+ *
+ * @package WordPress
+ */
+
+
+// The name of the database for WordPress
+define( 'DB_NAME', '{{ wordpress_db_name }}' );
+
+/** Database username */
+define( 'DB_USER', '{{ wordpress_db_user }}' );
+
+/** Database password */
+define( 'DB_PASSWORD', '{{ wordpress_db_password }}' );
+
+/** Database hostname */
+define( 'DB_HOST', 'localhost' ); // اگر دیتابیس روی همین سرور است
+
+/** Database charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The database collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to something unique for each installation! You can generate
+ * these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
+ *
+ * @since WordPress 2.6.0
+ */
+
+define( 'AUTH_KEY',         '{{ wordpress_auth_key }}' );
+define( 'SECURE_AUTH_KEY',  '{{ wordpress_secure_auth_key }}' );
+define( 'LOGGED_IN_KEY',    '{{ wordpress_logged_in_key }}' );
+define( 'NONCE_KEY',        '{{ wordpress_nonce_key }}' );
+define( 'AUTH_SALT',        '{{ wordpress_auth_salt }}' );
+define( 'SECURE_AUTH_SALT', '{{ wordpress_secure_auth_salt }}' );
+define( 'LOGGED_IN_SALT',   '{{ wordpress_logged_in_salt }}' );
+define( 'NONCE_SALT',       '{{ wordpress_nonce_salt }}' );
+
+/**#@-*/
+
+/**
+ * WordPress URL settings.
+ *
+ * You can define your WordPress address (URL) and site address (URL) here.
+ * Both of them should be in the same set of rules.
+ * Add a trailing slash to the end of the URLs.
+ */
+define( 'WP_HOME', 'http://{{ wordpress_domain }}' );
+define( 'WP_SITEURL', 'http://{{ wordpress_domain }}' );
+
+
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is recommended to leave false unless you are developing your theme
+ * or plugin.
+ */
+define( 'WP_DEBUG', false );
+
+/* That's all, stop editing! Happy publishing. */
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ );
+}
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';
