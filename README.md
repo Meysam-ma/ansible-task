@@ -1,4 +1,3 @@
-```markdown
 # Ansible Role: WordPress
 
 This Ansible role installs and configures a full WordPress stack, including Apache, MariaDB, and WordPress itself.
@@ -56,7 +55,7 @@ The following variables can be overridden to customize the installation. Default
     # --- Customize these variables ---
     mariadb_root_password: "YOUR_STRONG_ROOT_PASSWORD" # !! IMPORTANT: Change this !!
     wordpress_db_password: "YOUR_STRONG_WP_DB_PASSWORD" # !! IMPORTANT: Change this !!
-```
+``` 
 ## Run sample
 
 ```bash
