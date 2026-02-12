@@ -1,0 +1,5 @@
+Host srv2
+    HostName 192.168.56.102
+    Port 22
+    User meysam
+    IdentityFile ~/.ssh/worker2_rsa
