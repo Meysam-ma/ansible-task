@@ -15,7 +15,7 @@ This Ansible role installs and configures a full WordPress stack, including Apac
 
 This role assumes you have a target host(s) with:
 
-- A supported Linux distribution (Ubuntu, Debian, CentOS, RedHat).
+- A supported Linux distribution (Ubuntu, Debian).
 - Root or sudo privileges for the Ansible user.
 - Internet connectivity to download packages and WordPress.
 
@@ -23,6 +23,7 @@ This role assumes you have a target host(s) with:
 
 The following variables can be overridden to customize the installation. Default values are provided in `roles/wordpress/defaults/main.yml`.
 
+- `playbook_dir`: (Required) This will used to auto-generate wordpress salts, in .secrets directory, during role execution. (Default: `/home/meysam/ansible/task`)
 - `mariadb_root_password`: (Required) The root password for MariaDB. *Change this from the default!
 - `wordpress_db_name`: Name of the WordPress database. (Default: `wordpress_db`)
 - `wordpress_db_user`: Username for the WordPress database. (Default: `wordpress_user`)
