@@ -2,10 +2,10 @@
 # defaults file for wordpress
 
 # MariaDB Settings
-mariadb_root_password: "123456Aa@" # **تغییر این مقدار در محیط عملیاتی الزامی است**
+mariadb_root_password: "123456Aa@" 
 wordpress_db_name: "wordpress_db"
 wordpress_db_user: "wordpress_user"
-wordpress_db_password: "123456Aa@" # **تغییر این مقدار در محیط عملیاتی الزامی است**
+wordpress_db_password: "123456Aa@"
 mariadb_packages:
   - mariadb-server
   - mariadb-client
@@ -19,7 +19,7 @@ apache_vhost_dir: "/etc/apache2/sites-available" # For Debian/Ubuntu
 # apache_vhost_dir: "/etc/httpd/conf.d"          # For RHEL/CentOS
 
 wordpress_web_root: "/var/www/wordpress"
-wordpress_domain: "localhost" # دامنه یا IP سرور برای دسترسی به وردپرس
+wordpress_domain: "localhost"
 
 # WordPress Settings
 wordpress_version: "latest" # یا یک نسخه خاص مثل "6.2.2"
