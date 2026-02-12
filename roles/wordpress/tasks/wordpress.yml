@@ -1,0 +1,36 @@
+---
+- name: Download WordPress
+  ansible.builtin.get_url:
+    url: "{{ wordpress_download_url }}"
+    dest: "{{ wordpress_local_path }}"
+    mode: '0644'
+    # state: present # default
+  # check_mode: no # برای اطمینان از اجرای این تسک حتی در حالت check mode
+
+- name: Extract WordPress
+  ansible.builtin.unarchive:
+    src: "{{ wordpress_local_path }}"
+    dest: "{{ wordpress_web_root }}"
+    remote_src: yes # برای دانلود و اکسترکت در یک مرحله
+    creates: "{{ wordpress_web_root }}/wp-login.php" # اگر فایل لاگین وردپرس وجود دارد، یعنی قبلا اکسترکت شده است.
+
+- name: Remove default WordPress index.html (if exists)
+  ansible.builtin.file:
+    path: "{{ wordpress_web_root }}/index.html"
+    state: absent
+
+- name: Create WordPress wp-config.php from template
+  ansible.builtin.template:
+    src: wp-config.php.j2
+    dest: "{{ wordpress_config_file }}"
+    owner: "{{ wordpress_owner }}"
+    group: "{{ wordpress_group }}"
+    mode: '0640' # دسترسی کمتر برای فایل حساس کانفیگ
+
+- name: Ensure WordPress files ownership is correct
+  ansible.builtin.file:
+    path: "{{ wordpress_web_root }}"
+    state: directory
+    owner: "{{ wordpress_owner }}"
+    group: "{{ wordpress_group }}"
+    recurse: yes
