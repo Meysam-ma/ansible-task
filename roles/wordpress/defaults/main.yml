@@ -2,7 +2,7 @@
 # defaults file for wordpress
 
 # MariaDB Settings
-mariadb_root_password: "supersecretrootpassword" # **تغییر این مقدار در محیط عملیاتی الزامی است**
+mariadb_root_password: "123456Aa@" # **تغییر این مقدار در محیط عملیاتی الزامی است**
 wordpress_db_name: "wordpress_db"
 wordpress_db_user: "wordpress_user"
 wordpress_db_password: "123456Aa@" # **تغییر این مقدار در محیط عملیاتی الزامی است**
