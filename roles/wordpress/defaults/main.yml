@@ -1,6 +1,9 @@
 ---
 # defaults file for wordpress
 
+# set playbook runnig directory
+playbook_dir: "/home/meysam/ansible/task" # this will used to auto-generate wordpress salts during role execution
+
 # MariaDB Settings
 mariadb_root_password: "supersecretrootpassword" 
 wordpress_db_name: "wordpress_db"
