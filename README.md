@@ -23,11 +23,10 @@ This role assumes you have a target host(s) with:
 
 The following variables can be overridden to customize the installation. Default values are provided in `roles/wordpress/defaults/main.yml`.
 
-- `playbook_dir`: (Required) This will used to auto-generate wordpress salts, in .secrets directory, during role execution. (Default: `/home/meysam/ansible/task`)
-- `mariadb_root_password`: (Required) The root password for MariaDB. *Change this from the default!
+- `mariadb_root_password`: (Required) The root password for MariaDB. *Change this from the default!. Use group_vars/webservers/vault.yml
 - `wordpress_db_name`: Name of the WordPress database. (Default: `wordpress_db`)
 - `wordpress_db_user`: Username for the WordPress database. (Default: `wordpress_user`)
-- `wordpress_db_password`: (Required) Password for the WordPress database user. Change this from the default!*
+- `wordpress_db_password`: (Required) Password for the WordPress database user. Change this from the default!*. Use group_vars/webservers/vault.yml
 - `apache_packages`: List of Apache packages to install. (Default: `['apache2']` for Debian/Ubuntu)
 - `mariadb_packages`: List of MariaDB packages to install. (Default: `['mariadb-server', 'mariadb-client']`)
 - `wordpress_web_root`: The directory where WordPress files will be installed. (Default: `/var/www/wordpress`)
@@ -61,14 +60,4 @@ The following variables can be overridden to customize the installation. Default
 
 ```bash
 ansible-playbook playbook.yml --ask-become-pass --ask-vault-pass
-
-```
-
-## Note
-After first run .secret directory will be created. this directory contains wordpress salts. For security reaseons encrypt them with vault:
-
-```bash
-
-ansible-vault encrypt .secrets/*
-
 ```
