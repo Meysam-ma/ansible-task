@@ -1,0 +1,11 @@
+---
+# tasks file for wordpress
+
+- name: Include MariaDB setup tasks
+  ansible.builtin.include_tasks: mariadb.yml
+
+- name: Include Apache setup tasks
+  ansible.builtin.include_tasks: apache.yml
+
+- name: Include WordPress installation and configuration tasks
+  ansible.builtin.include_tasks: wordpress.yml
