@@ -44,7 +44,7 @@ The following variables can be overridden to customize the installation. Default
 
 ## Dependencies
 
-This role does not have explicit role dependencies defined in `meta/main.yml` in this example, but you could add them if you were using other roles (e.g., a dedicated `geerlingguy.mysql` role).
+
 
 ## Example Playbook
 
@@ -60,3 +60,19 @@ This role does not have explicit role dependencies defined in `meta/main.yml` in
     # --- Customize these variables ---
     mariadb_root_password: "YOUR_STRONG_ROOT_PASSWORD" # !! IMPORTANT: Change this !!
     wordpress_db_password: "YOUR_STRONG_WP_DB_PASSWORD" # !! IMPORTANT: Change this !!
+```
+## Run sample
+
+```bash
+ansible-playbook playbook.yml --ask-become-pass --ask-vault-pass
+
+```
+
+## Note
+After first run .secret directory will be created. this directory contains wordpress salts. For security reaseons encrypt them with vault:
+
+```bash
+
+ansible-vault encrypt .secrets/*
+
+```
