@@ -4,8 +4,12 @@
   vars:
     mariadb_root_password: "123456Aa@"
     wordpress_db_password: "123456Aa@"
-    #wordpress_domain: "your-wordpress-site.com"
+    # wordpress_domain: "your-wordpress-site.com"
+
 # ----------------------------------------------------
+    # از این مسیر برای تولید رمزهای مورد نیاز ورد پرس بصورت اتوماتیک از طریق والت و در هنگام اجرای رول استفاده میشود 
+    # playbook_dir: "/home/meysam/ansible/task"
+    
     # اگر نیاز به تغییر نام دیتابیس یا یوزر وردپرس دارید، می‌توانید اینجا اضافه کنید:
     # wordpress_db_name: "my_custom_wp_db"
     # wordpress_db_user: "my_custom_wp_user"
