@@ -1,0 +1,27 @@
+---
+galaxy_info:
+  author: Meysam Maleki
+  description: An Ansible Role to install and configure WordPress with Apache and MariaDB.
+  min_ansible_version: "2.10" # حداقل نسخه Ansible مورد نیاز
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - noble
+        - focal
+        - jammy
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+
+  galaxy_tags:
+    - wordpress
+    - web
+    - apache
+    - mariadb
+    - database
+    - cms
+    - automation
+
+dependencies:
