@@ -19,6 +19,15 @@ apache_packages:
 apache_vhost_dir: "/etc/apache2/sites-available" # For Debian/Ubuntu
 # apache_vhost_dir: "/etc/httpd/conf.d"          # For RHEL/CentOS
 
+php_packages:
+  - php
+  - libapache2-mod-php
+  - php-mysql
+  - php-xml
+  - php-curl
+  - php-gd
+  - php-mbstring
+
 wordpress_web_root: "/var/www/wordpress"
 wordpress_domain: "localhost"
 
