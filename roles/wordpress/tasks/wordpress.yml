@@ -4,8 +4,7 @@
     url: "{{ wordpress_download_url }}"
     dest: "{{ wordpress_local_path }}"
     mode: '0644'
-    # state: present # default
-  # check_mode: no # برای اطمینان از اجرای این تسک حتی در حالت check mode
+
 
 - name: Extract WordPress
   ansible.builtin.unarchive:
