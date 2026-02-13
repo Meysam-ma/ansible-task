@@ -3,7 +3,7 @@
   hosts: webservers
   become: yes
   # vars:
-    # For changing "mariadb_root_password" and "wordpress_db_password" refer to group_vars/webservers/vault.yml "123456Aa@"
+    # For changing "mariadb_root_password" and "wordpress_db_password" refer to roles/wordpress/vars/vault.yml "123456Aa@" ;)
 
     # wordpress_domain: "your-wordpress-site.com"
     
