@@ -2,7 +2,7 @@ ungrouped:
   hosts:
 webservers:
   hosts:
-    srv2:
+    srv4:
       ansible_user: meysam
       become: yes
       become_method: sudo
