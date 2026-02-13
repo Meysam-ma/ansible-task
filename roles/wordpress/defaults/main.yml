@@ -1,9 +1,6 @@
 ---
 # defaults file for wordpress
 
-# set playbook runnig directory
-playbook_dir: "/home/meysam/ansible/task" # this will used to auto-generate wordpress salts during role execution
-
 # MariaDB Settings
 mariadb_root_password: "supersecretrootpassword" 
 wordpress_db_name: "wordpress_db"
@@ -26,7 +23,12 @@ wordpress_domain: "localhost"
 
 # WordPress Settings
 wordpress_version: "latest" # یا یک نسخه خاص مثل "6.2.2"
-wordpress_download_url: "https://wordpress.org/latest.tar.gz"
+wordpress_download_url: >-
+  {% if wordpress_version == "latest" %}
+  https://wordpress.org/latest.tar.gz
+  {% else %}
+  https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
+  {% endif %}
 wordpress_local_path: "/tmp/wordpress.tar.gz"
 wordpress_install_dir: "{{ wordpress_web_root }}"
 wordpress_config_file: "{{ wordpress_install_dir }}/wp-config.php"
