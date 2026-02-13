@@ -21,12 +21,20 @@
 - name: Copy Apache virtual host configuration
   ansible.builtin.template:
     src: apache.conf.j2
-    dest: "{{ apache_vhost_dir }}/wordpress.conf" 
-  notify: Restart Apache 
+    dest: "{{ apache_vhost_dir }}/wordpress.conf"
+  notify: Restart Apache
 
-- name: Enable Apache virtual host site (Debian/Ubuntu specific)
-  ansible.builtin.command: a2ensite wordpress.conf
-  args:
-    creates: "/etc/apache2/sites-enabled/wordpress.conf" # اگر فایل لینک شده وجود دارد، این تسک را اجرا نکن
-  when: "'/etc/apache2/sites-available/wordpress.conf' in apache_vhost_dir" # فقط برای سیستم‌های مبتنی بر دبیان/اوبونتو
+- name: Disable default Apache site
+  ansible.builtin.file:
+    path: /etc/apache2/sites-enabled/000-default.conf
+    state: absent
+  when: ansible_os_family == "Debian"
+  notify: Restart Apache
+
+- name: Enable WordPress site
+  ansible.builtin.file:
+    src: "{{ apache_vhost_dir }}/wordpress.conf"
+    dest: /etc/apache2/sites-enabled/wordpress.conf
+    state: link
+  when: ansible_os_family == "Debian"
   notify: Restart Apache
