@@ -10,5 +10,8 @@
 - name: Include Apache setup tasks
   ansible.builtin.include_tasks: apache.yml
 
+- name: Include PHP setup tasks
+  ansible.builtin.include_tasks: php.yml
+
 - name: Include WordPress installation and configuration tasks
   ansible.builtin.include_tasks: wordpress.yml
