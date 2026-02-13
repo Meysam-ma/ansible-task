@@ -73,3 +73,7 @@ The following variables can be overridden to customize the installation. Default
 ```bash
 ansible-playbook playbook.yml --ask-become-pass --ask-vault-pass
 ```
+## Screenshots
+![successful_run_1](screenshots/successful_run_1.png)
+![successful_run_2](screenshots/successful_run_2.png)
+![successful_run_3](screenshots/successful_run_3.png)
