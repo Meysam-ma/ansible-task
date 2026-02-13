@@ -5,13 +5,13 @@
     dest: "{{ wordpress_local_path }}"
     mode: '0644'
 
-
 - name: Extract WordPress
   ansible.builtin.unarchive:
     src: "{{ wordpress_local_path }}"
     dest: "{{ wordpress_web_root }}"
-    remote_src: yes # برای دانلود و اکسترکت در یک مرحله
+    remote_src: yes
     creates: "{{ wordpress_web_root }}/wp-login.php" # اگر فایل لاگین وردپرس وجود دارد، یعنی قبلا اکسترکت شده است.
+    extra_opts: [--strip-components=1] # در هنگام اکسترکت جلوی ایجاد دایرکتوری تو در تو در را میگیرد
 
 - name: Remove default WordPress index.html (if exists)
   ansible.builtin.file:
