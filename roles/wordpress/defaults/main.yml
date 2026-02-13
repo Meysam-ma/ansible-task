@@ -9,6 +9,7 @@ wordpress_db_password: "supersecretdbpassword"
 mariadb_packages:
   - mariadb-server
   - mariadb-client
+  - python3-pymysql
 
 # Apache Settings
 apache_packages:
