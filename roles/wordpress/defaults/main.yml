@@ -42,5 +42,6 @@ wordpress_download_url: >-
 wordpress_local_path: "/tmp/wordpress.tar.gz"
 wordpress_install_dir: "{{ wordpress_web_root }}"
 wordpress_config_file: "{{ wordpress_install_dir }}/wp-config.php"
+wordpress_table_prefix: "wp_"
 wordpress_owner: "www-data" # User for web server (www-data for Debian/Ubuntu, apache for RHEL/CentOS)
 wordpress_group: "www-data" # Group for web server (www-data for Debian/Ubuntu, apache for RHEL/CentOS)
