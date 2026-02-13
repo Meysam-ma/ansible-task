@@ -1,0 +1,6 @@
+---
+- name: Install PHP and required extensions for WordPress
+  ansible.builtin.package:
+    name: "{{ php_packages }}"
+    state: present
+  notify: Restart Apache
