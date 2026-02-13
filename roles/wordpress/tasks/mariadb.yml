@@ -10,12 +10,15 @@
     state: started
     enabled: yes
 
-- name: Set MariaDB root password
+- name: Ensure MariaDB root password is set
   community.mysql.mysql_user:
     name: root
     host: localhost
     password: "{{ mariadb_root_password }}"
+    login_user: root
+    login_password: "{{ mariadb_root_password }}"
     login_unix_socket: /var/run/mysqld/mysqld.sock
+    check_implicit_admin: true
     state: present
 
 - name: Create WordPress database
