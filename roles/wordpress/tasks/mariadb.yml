@@ -19,6 +19,7 @@
     login_password: "{{ mariadb_root_password }}"
     login_unix_socket: /var/run/mysqld/mysqld.sock
     check_implicit_admin: true
+    column_case_sensitive: false
     state: present
 
 - name: Create WordPress database
