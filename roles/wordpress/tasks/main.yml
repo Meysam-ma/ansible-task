@@ -2,7 +2,7 @@
 # tasks file for wordpress
 
 - name: Include sensitive encrypted variables from vars/vault.yml
-  ansible.builtin.include_vars: vault.yml
+  ansible.builtin.include_vars: vault.yml # vault password is: '123456Aa@'
 
 - name: Include MariaDB setup tasks
   ansible.builtin.include_tasks: mariadb.yml
