@@ -57,6 +57,8 @@ The following variables can be overridden to customize the installation. Default
     # --- Customize these variables ---
 
     # For changing "mariadb_root_password" and "wordpress_db_password" refer to roles/wordpress/vars/vault.yml "123456Aa@" ;)
+
+    # wordpress_domain: "your-wordpress-site.com"
     
     # اگر نیاز به تغییر نام دیتابیس یا یوزر وردپرس دارید، می‌توانید اینجا اضافه کنید:
     # wordpress_db_name: "my_custom_wp_db"
